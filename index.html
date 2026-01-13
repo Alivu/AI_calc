@@ -13,6 +13,70 @@
             font-family: 'Segoe UI', 'Arial', sans-serif;
         }
 
+        /* Таблица мощных ламп */
+        .power-lamps-table {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .power-lamps-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .power-lamps-table th {
+            background: var(--primary);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .power-lamps-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .power-lamps-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .power-lamps-table .industrial {
+            background: #e8f4fc;
+            font-weight: 600;
+        }
+
+        /* Бейджи для типов решений */
+        .solution-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge-industrial {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .badge-office {
+            background: #3498db;
+            color: white;
+        }
+
+        .badge-residential {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-economy {
+            background: #f39c12;
+            color: white;
+        }
+
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -260,6 +324,10 @@
             font-size: 11px;
             margin-top: 5px;
             display: none;
+        }
+
+        .input-field.error {
+            border-color: var(--accent);
         }
 
         .calculate-btn {
@@ -785,6 +853,136 @@
             color: var(--warning);
         }
 
+        /* Новые стили для улучшенного AI */
+        .ai-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .ai-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .ai-tab.active {
+            background: var(--ai-color);
+            color: white;
+            border-color: var(--ai-color);
+        }
+
+        .ai-tab:hover:not(.active) {
+            background: #e8f4fc;
+            border-color: var(--secondary);
+        }
+
+        .ai-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .ai-tab-content.active {
+            display: block;
+        }
+
+        .ai-comparison-table {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        .ai-comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .ai-comparison-table th {
+            background: var(--ai-color);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .ai-comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .ai-comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .ai-comparison-table .best-value {
+            background: #e8f5e9;
+            font-weight: 600;
+        }
+
+        .practical-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .practical-tip {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid var(--ai-color);
+        }
+
+        .practical-tip h4 {
+            color: var(--ai-color);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .economic-analysis {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fc 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .economic-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .economic-stat {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .economic-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ai-color);
+            margin-bottom: 5px;
+        }
+
+        .economic-stat-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
         .ai-tips {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -928,6 +1126,14 @@
             .ai-section {
                 padding: 15px;
             }
+            
+            .ai-tabs {
+                flex-direction: column;
+            }
+            
+            .ai-tab {
+                min-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -959,6 +1165,14 @@
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
+            }
+            
+            .practical-tips {
+                grid-template-columns: 1fr;
+            }
+            
+            .economic-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -1131,12 +1345,12 @@
                     </div>
                     
                     <!-- Информация о коэффициентах -->
-					<div class="coefficient-info">
-					<i class="fas fa-calculator"></i> 
-					Формула: (Люкс × Площадь × <span class="highlight" id="reserveValue">1.2</span> × <span class="highlight" id="heightCoefficient">1.0</span>) ÷ 
-						<span class="highlight" id="coefficientValue">0.5</span> = 
-						×<span class="highlight" id="totalMultiplier">2.4</span>
-						</div>
+                    <div class="coefficient-info">
+                        <i class="fas fa-calculator"></i> 
+                        Формула: (Люкс × Площадь × <span class="highlight" id="reserveValue">1.2</span> × <span class="highlight" id="heightCoefficient">1.0</span>) ÷ 
+                        <span class="highlight" id="coefficientValue">0.5</span> = 
+                        ×<span class="highlight" id="totalMultiplier">2.4</span>
+                    </div>
                     
                     <!-- Основная информация -->
                     <div class="main-info">
@@ -1219,6 +1433,152 @@
                 { max: 15.0, multiplier: 6.0, label: 'Высотное' }
             ]
         };
+		
+		window.switchAITab = function(tabName, button) {
+    // Убираем активный класс у всех табов и контента
+    document.querySelectorAll('.ai-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.ai-tab-content').forEach(content => content.classList.remove('active'));
+    
+    // Добавляем активный класс нажатому табу
+    button.classList.add('active');
+    
+    // Показываем соответствующий контент
+    const tabContentId = 'aiTab' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
+    const tabContent = document.getElementById(tabContentId);
+    if (tabContent) {
+        tabContent.classList.add('active');
+    }
+};
+
+
+        // ==================== ПОЛНЫЙ СПЕКТР ЛАМП ====================
+        const lampTypes = {
+            // Маленькие лампы (для жилых помещений, люстр)
+            led6w: { 
+                power: 6, 
+                lumens: 510, 
+                socket: 'E14', 
+                base: 'маленькая', 
+                type: 'свеча',
+                application: 'жилые помещения, люстры, бра'
+            },
+            led9w: { 
+                power: 9, 
+                lumens: 765, 
+                socket: 'E14', 
+                base: 'маленькая', 
+                type: 'шарик',
+                application: 'жилые помещения, декоративное освещение'
+            },
+            led13w: { 
+                power: 13, 
+                lumens: 1105, 
+                socket: 'E27', 
+                base: 'стандартная', 
+                type: 'груша',
+                application: 'основное освещение, офисы'
+            },
+            led20w: { 
+                power: 20, 
+                lumens: 1700, 
+                socket: 'E27', 
+                base: 'стандартная', 
+                type: 'груша',
+                application: 'основное освещение, магазины'
+            },
+            led30w: { 
+                power: 30, 
+                lumens: 2550, 
+                socket: 'E27', 
+                base: 'крупная', 
+                type: 'рефлектор',
+                application: 'высокие потолки, склады'
+            },
+            
+            // ПРОФЕССИОНАЛЬНЫЕ МОЩНЫЕ ЛАМПЫ
+            led40w: { 
+                power: 40, 
+                lumens: 3400, 
+                socket: 'E27/E40', 
+                base: 'крупная', 
+                type: 'рефлектор',
+                application: 'промышленные помещения, ангары'
+            },
+            led50w: { 
+                power: 50, 
+                lumens: 4250, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'цеха, склады, спортивные залы'
+            },
+            led60w: { 
+                power: 60, 
+                lumens: 5100, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'производственные помещения'
+            },
+            led80w: { 
+                power: 80, 
+                lumens: 6800, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'крупные цеха, ангары'
+            },
+            led100w: { 
+                power: 100, 
+                lumens: 8500, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'огромные помещения, стадионы'
+            },
+            led120w: { 
+                power: 120, 
+                lumens: 10200, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'промышленные объекты'
+            },
+            led150w: { 
+                power: 150, 
+                lumens: 12750, 
+                socket: 'E40', 
+                base: 'голиаф', 
+                type: 'промышленная',
+                application: 'специальные объекты, наружное освещение'
+            },
+            
+            // LED модули и COB матрицы (современные решения)
+            cob50w: {
+                power: 50,
+                lumens: 5000,
+                socket: 'интегрированный',
+                base: 'COB матрица',
+                type: 'модуль',
+                application: 'современные светильники, уличное освещение'
+            },
+            cob100w: {
+                power: 100,
+                lumens: 10000,
+                socket: 'интегрированный',
+                base: 'COB матрица',
+                type: 'модуль',
+                application: 'промышленные светильники'
+            },
+            cob200w: {
+                power: 200,
+                lumens: 20000,
+                socket: 'интегрированный',
+                base: 'COB матрица',
+                type: 'модуль',
+                application: 'стадионы, крупные объекты'
+            }
+        };
 
         // ==================== ЭЛЕМЕНТЫ DOM ====================
         const modeSnipBtn = document.getElementById('modeSnipBtn');
@@ -1287,405 +1647,1706 @@
 
         customLux.addEventListener('input', debouncedCalculate);
 
-        // ==================== УПРАВЛЕНИЕ AI ПАНЕЛЬЮ ====================
-        aiAnalyzeBtn.addEventListener('click', () => {
-            if (calculationData) {
-                openAIPanel();
+// ==================== УПРАВЛЕНИЕ AI ПАНЕЛЬЮ ====================
+aiAnalyzeBtn.addEventListener('click', () => {
+    if (calculationData) {
+        openAIPanel();
+    }
+});
+
+closeAiPanel.addEventListener('click', closeAIPanel);
+aiOverlay.addEventListener('click', closeAIPanel);
+
+function openAIPanel() {
+    aiOverlay.classList.add('active');
+    aiAnalysisPanel.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Показать анимацию загрузки
+    aiPanelContent.innerHTML = `
+        <div class="ai-loading">
+            <div class="ai-loading-spinner"></div>
+            <div class="ai-loading-text">AI анализирует помещение и подбирает решения...</div>
+        </div>
+    `;
+    
+    // Таймаут безопасности: если анализ зависнет более 7 секунд, показать ошибку
+    const safetyTimeout = setTimeout(() => {
+        console.error("AI анализ завис более 7 секунд");
+        showAIAnalysisError("Анализ занимает больше времени, чем ожидалось. Попробуйте снова.");
+    }, 15000);
+    
+    // Запустить анализ с небольшой задержкой для плавности
+    setTimeout(() => {
+        try {
+            generateAIAnalysis();
+            clearTimeout(safetyTimeout); // Успешно - отменяем таймаут безопасности
+        } catch (error) {
+            console.error("Критическая ошибка в AI анализе:", error);
+            clearTimeout(safetyTimeout);
+            showAIAnalysisError("Произошла ошибка при генерации анализа. Обновите страницу.");
+        }
+    }, 1000);
+}
+
+function closeAIPanel() {
+    aiOverlay.classList.remove('active');
+    aiAnalysisPanel.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    // Очистить содержимое при закрытии
+    aiPanelContent.innerHTML = '';
+}
+
+// Новая функция для показа ошибки
+function showAIAnalysisError(message = "Произошла ошибка при генерации анализа.") {
+    aiPanelContent.innerHTML = `
+        <div class="ai-section" style="text-align: center; padding: 40px 20px;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #e74c3c; margin-bottom: 20px;"></i>
+            <h3 style="color: #e74c3c; margin-bottom: 15px;">Ошибка</h3>
+            <p style="margin-bottom: 25px; color: var(--dark);">${message}</p>
+            <button onclick="closeAIPanel()" style="margin-top: 20px; padding: 12px 30px; background: var(--ai-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                <i class="fas fa-times"></i> Закрыть
+            </button>
+        </div>
+    `;
+}
+// ==================== AI АНАЛИЗ (ОБНОВЛЕННАЯ ВЕРСИЯ) ====================
+function generateAIAnalysis() {
+    // Проверка данных
+    if (!calculationData) {
+        throw new Error("Отсутствуют данные для анализа. Сначала выполните расчет освещения.");
+    }
+    
+    const data = calculationData;
+    const area = data.area;
+    const height = data.height;
+    const length = data.length;
+    const width = data.width;
+    const roomType = data.roomTypeText.toLowerCase();
+    const requiredLumens = data.requiredLumens;
+    
+    try {
+        // Определяем тип помещения
+        const roomCategory = getRoomCategory(area, height);
+        
+        // Генерируем профессиональные решения
+        const solutions = generateProfessionalLightingSolutions(data);
+        
+        // РАСЧЕТ РАСПРЕДЕЛЕНИЯ СВЕТИЛЬНИКОВ ПО ВАШЕЙ МЕТОДИКЕ
+        let chandeliersCount = 0;
+        let spotlightsCount = 0;
+        let hornsPerChandelier = 0;
+        
+        // 1. Определяем количество люстр: 1 люстра на 6-7 метров длины
+        const roomLength = Math.max(length, width);
+        const roomWidth = Math.min(length, width);
+        
+        // Правило: 1234567 Люстра 1234567 люстра 1234567 люстра
+        // 7 метров - максимальная длина на одну люстру
+        if (roomLength <= 7) {
+            chandeliersCount = 1;
+        } else if (roomLength <= 14) {
+            chandeliersCount = 2;
+        } else {
+            chandeliersCount = 3;
+        }
+        
+        // Максимум 3 люстры даже для очень длинных помещений
+        chandeliersCount = Math.min(chandeliersCount, 3);
+        
+        // 2. Определяем количество рожков в зависимости от ширины помещения
+        if (roomWidth <= 3) {
+            // Узкое помещение 1-3м: маленькие люстры
+            hornsPerChandelier = 3;
+        } else if (roomWidth <= 4) {
+            // 3-4м: средние люстры
+            hornsPerChandelier = 5;
+        } else if (roomWidth <= 5) {
+            // 4-5м: большие люстры
+            hornsPerChandelier = 8;
+        } else if (roomWidth <= 6) {
+            // 5-6м: очень большие люстры
+            hornsPerChandelier = 12;
+        } else {
+            // Шире 6м: максимальные люстры
+            hornsPerChandelier = 18;
+        }
+        
+        // Корректировка для нескольких люстр
+        if (chandeliersCount > 1) {
+            // При 2-3 люстрах уменьшаем количество рожков в каждой
+            hornsPerChandelier = Math.ceil(hornsPerChandelier / chandeliersCount);
+            
+            // Но не меньше минимального
+            hornsPerChandelier = Math.max(hornsPerChandelier, 3);
+        }
+        
+        // Корректировка по высоте потолка
+        if (height < 3.0) {
+            // Низкие потолки: нельзя вешать большие люстры
+            if (hornsPerChandelier > 12) hornsPerChandelier = 12;
+            if (hornsPerChandelier > 8 && chandeliersCount === 1) hornsPerChandelier = 8;
+        }
+        
+        // 3. Расчет точечных светильников для компенсации
+        // Считаем, сколько света дают люстры
+        let lampLumens;
+        if (height <= 2.7) lampLumens = 510;      // 6Вт
+        else if (height <= 3.2) lampLumens = 765; // 9Вт
+        else if (height <= 3.5) lampLumens = 1105; // 13Вт
+        else lampLumens = 1700;                    // 20Вт
+        
+        const chandeliersTotalLumens = chandeliersCount * hornsPerChandelier * lampLumens;
+        const remainingLumens = Math.max(0, requiredLumens - chandeliersTotalLumens);
+        
+        // Точечные светильники для компенсации недостатка
+        if (remainingLumens > 0) {
+            // Распределяем по сетке 1.5×1.5м
+            const spotsInLength = Math.ceil(roomLength / 1.5);
+            const spotsInWidth = Math.ceil(roomWidth / 1.5);
+            const maxSpotlights = spotsInLength * spotsInWidth;
+            
+            // Нужное количество точечных для компенсации
+            const neededSpotlights = Math.ceil(remainingLumens / lampLumens);
+            spotlightsCount = Math.min(neededSpotlights, maxSpotlights);
+            
+            // Минимальное количество точечных для равномерности
+            if (area > 30 && spotlightsCount < 4) {
+                spotlightsCount = 4; // минимум 4 точечных для больших помещений
             }
-        });
-
-        closeAiPanel.addEventListener('click', closeAIPanel);
-        aiOverlay.addEventListener('click', closeAIPanel);
-
-        function openAIPanel() {
-            aiOverlay.classList.add('active');
-            aiAnalysisPanel.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        }
+        
+        // 4. Формируем описание распределения
+        let distributionDescription = "";
+        if (chandeliersCount === 1) {
+            distributionDescription = `1 люстра на ${hornsPerChandelier} рожков`;
+        } else {
+            distributionDescription = `${chandeliersCount} люстры по ${hornsPerChandelier} рожков`;
+        }
+        
+        if (spotlightsCount > 0) {
+            distributionDescription += ` + ${spotlightsCount} точечных для компенсации`;
+        }
+        
+        if (roomWidth > 5) {
+            distributionDescription += ` + трековая система (дополнительно)`;
+        }
             
-            aiPanelContent.innerHTML = `
-                <div class="ai-loading">
-                    <div class="ai-loading-spinner"></div>
-                    <div class="ai-loading-text">AI анализирует помещение и подбирает решения...</div>
+        let html = `
+            <div class="ai-section">
+                <div class="ai-section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Анализ помещения: ${roomCategory}
                 </div>
-            `;
+                <div class="ai-option">
+                    <div class="ai-option-details">
+                        <p><strong>📐 Размеры:</strong> ${data.length} × ${data.width} × ${data.height}м = ${area.toFixed(1)} м²</p>
+                        <p><strong>🎯 Требуемая освещенность:</strong> ${data.targetLux} лк (${data.modeText})</p>
+                        <p><strong>💡 Необходимый световой поток:</strong> ${requiredLumens.toLocaleString()} лм</p>
+                        <p><strong>🏗️ Распределение по методике электрика:</strong> ${distributionDescription}</p>
+                        <p><strong>📊 Принцип расчета:</strong> 1 люстра на 6-7м длины × ${hornsPerChandelier} рожков (по ширине ${roomWidth.toFixed(1)}м)</p>
+                        <p><strong>📊 Характеристики:</strong> ${getRoomFeatures(roomType, area, height)}</p>
+                    </div>
+                    <div class="ai-option-stats">
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">${getComplexityLevel(area, height)}</div>
+                            <div class="ai-stat-label">Сложность</div>
+                        </div>
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">${getInstallationType(height)}</div>
+                            <div class="ai-stat-label">Монтаж</div>
+                        </div>
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">${getBudgetLevel(area)}</div>
+                            <div class="ai-stat-label">Бюджет</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            setTimeout(() => {
-                generateAIAnalysis();
-            }, 800);
+            <div class="ai-section ai-recommendation">
+                <div class="ai-section-title">
+                    <i class="fas fa-crown"></i>
+                    Оптимальное решение (рекомендация AI)
+                </div>
+                ${generateOptimalSolution(solutions.optimal)}
+            </div>
+            
+            <div class="ai-section">
+                <div class="ai-section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Основные варианты освещения
+                </div>
+                <div class="ai-tabs">
+                    <button class="ai-tab active" onclick="switchAITab('main', this)">Основной свет</button>
+                    <button class="ai-tab" onclick="switchAITab('combined', this)">Комбинированный</button>
+                    <button class="ai-tab" onclick="switchAITab('modern', this)">Современный</button>
+                    <button class="ai-tab" onclick="switchAITab('economy', this)">Экономный</button>
+                </div>
+                
+                <div id="aiTabMain" class="ai-tab-content active">
+                    ${generateLightingOption(solutions.main)}
+                </div>
+                
+                <div id="aiTabCombined" class="ai-tab-content">
+                    ${generateLightingOption(solutions.combined)}
+                </div>
+                
+                <div id="aiTabModern" class="ai-tab-content">
+                    ${generateLightingOption(solutions.modern)}
+                </div>
+                
+                <div id="aiTabEconomy" class="ai-tab-content">
+                    ${generateLightingOption(solutions.economy)}
+                </div>
+            </div>
+            
+            <div class="ai-section">
+                <div class="ai-section-title">
+                    <i class="fas fa-th"></i>
+                    Сравнительная таблица
+                </div>
+                <div class="ai-comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Вариант</th>
+                                <th>Осветительные приборы</th>
+                                <th>Мощность</th>
+                                <th>Кол-во</th>
+                                <th>Цвет. темп.</th>
+                                <th>Сложность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${generateComparisonRows(solutions)}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="ai-section">
+                <div class="ai-section-title">
+                    <i class="fas fa-tools"></i>
+                    Практические рекомендации
+                </div>
+                ${generatePracticalTips(data, solutions)}
+            </div>
+            
+            <div class="ai-section">
+                <div class="ai-section-title">
+                    <i class="fas fa-calculator"></i>
+                    Экономический расчет
+                </div>
+                ${generateEconomicAnalysis(solutions, data)}
+            </div>
+        `;
+        
+        aiPanelContent.innerHTML = html;
+        aiPanelContent.scrollTop = 0;
+        
+    } catch (error) {
+        console.error("Ошибка при генерации AI анализа:", error);
+        throw error;
+    }
+}
+        // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ AI ====================
+        function getRoomCategory(area, height) {
+            if (area > 200 && height > 6) return "Производственное/Складское";
+            if (area > 100 && height > 4) return "Коммерческое большое";
+            if (area > 50) return "Просторное помещение";
+            if (area > 20) return "Среднее помещение";
+            return "Компактное помещение";
         }
 
-        function closeAIPanel() {
-            aiOverlay.classList.remove('active');
-            aiAnalysisPanel.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        function getRoomFeatures(roomType, area, height) {
+            const features = [];
+            
+            if (roomType.includes('детск')) features.push('повышенные требования к безопасности');
+            if (roomType.includes('офис')) features.push('требуется равномерное освещение');
+            if (roomType.includes('торгов')) features.push('акцентное освещение товаров');
+            if (area > 50) features.push('необходимо зонирование');
+            if (height > 3.5) features.push('высокие потолки');
+            if (height < 2.5) features.push('низкие потолки');
+            
+            return features.length > 0 ? features.join(', ') : 'стандартные условия';
         }
 
-        // ==================== AI АНАЛИЗ ====================
-        function generateAIAnalysis() {
-            const data = calculationData;
+        function getComplexityLevel(area, height) {
+            if (area > 80 || height > 4.5) return 'Высокая';
+            if (area > 40 || height > 3.5) return 'Средняя';
+            return 'Низкая';
+        }
+
+        function getInstallationType(height) {
+            if (height > 4.0) return 'Специальный';
+            if (height > 3.0) return 'С подвесом';
+            return 'Стандартный';
+        }
+
+        function getBudgetLevel(area) {
+            if (area > 80) return 'Высокий';
+            if (area > 40) return 'Средний';
+            return 'Эконом';
+        }
+
+// ==================== ПРОФЕССИОНАЛЬНЫЕ РЕАЛИСТИЧНЫЕ РЕШЕНИЯ ====================
+// ЗАМЕНИТЕ ВСЮ ЭТУ ФУНКЦИЮ
+// ==================== ГЕНЕРАЦИЯ ПРОФЕССИОНАЛЬНЫХ РЕШЕНИЙ ====================
+function generateProfessionalLightingSolutions(data) {
+    try {
+        const area = data.area;
+        const height = data.height;
+        const roomType = data.roomTypeText.toLowerCase();
+        const requiredLumens = data.requiredLumens;
+            
+        const isResidential = roomType.includes('жил') || roomType.includes('детск') || roomType.includes('кухн');
+        const isOffice = roomType.includes('офис') || roomType.includes('кабинет');
+        const isCommercial = roomType.includes('торгов');
+        const isIndustrial = roomType.includes('производ') || roomType.includes('склад') || roomType.includes('ангар');
+        const isSports = roomType.includes('спорт') || roomType.includes('зал');
+        
+        const isHighCeiling = height > 3.5;
+        const isVeryHighCeiling = height > 4.5;
+        const isLargeRoom = area > 50;
+        const isVeryLargeRoom = area > 100;
+        
+        // Генерируем варианты
+        let solutions = {
+            optimal: null,
+            main: null,
+            combined: null,
+            modern: null,
+            economy: null
+        };
+        
+        // ПРОМЫШЛЕННЫЕ/СПОРТИВНЫЕ/БОЛЬШИЕ ПОМЕЩЕНИЯ
+        if (isIndustrial || isSports || (isVeryLargeRoom && height > 4)) {
+            solutions.optimal = generateIndustrialSolution(data);
+            solutions.main = generateHighPowerSolution(data);
+            solutions.combined = generateIndustrialPanelSolution(data);
+            solutions.modern = generateHybridIndustrialSolution(data);
+            solutions.economy = generateEconomyIndustrialSolution(data);
+        }
+        // ОФИСНЫЕ/КОММЕРЧЕСКИЕ ПОМЕЩЕНИЯ
+        else if (isOffice || isCommercial) {
+            solutions.optimal = generateOfficeSolution(data);
+            solutions.main = generateOfficeChandelierSolution(data);
+            solutions.combined = generateOfficeCombinedSolution(data);
+            solutions.modern = generateOfficeModernSolution(data);
+            solutions.economy = generateOfficeEconomySolution(data);
+        }
+        // ЖИЛЫЕ ПОМЕЩЕНИЯ
+        else {
+            solutions.optimal = generateResidentialOptimalSolution(data);
+            solutions.main = generateChandelierSolution(data);
+            solutions.combined = generateCombinedSolution(data);
+            solutions.modern = generateModernSolution(data);
+            solutions.economy = generateEconomySolution(data);
+        }
+        
+        return solutions;
+    } catch (error) {
+        console.error("Ошибка в generateProfessionalLightingSolutions:", error);
+        // Возвращаем пустые решения вместо ошибки
+        return {
+            optimal: { name: "Ошибка генерации", totalFixtures: 0, totalPower: 0 },
+            main: { name: "Ошибка генерации", totalFixtures: 0, totalPower: 0 },
+            combined: { name: "Ошибка генерации", totalFixtures: 0, totalPower: 0 },
+            modern: { name: "Ошибка генерации", totalFixtures: 0, totalPower: 0 },
+            economy: { name: "Ошибка генерации", totalFixtures: 0, totalPower: 0 }
+        };
+    }
+}
+
+// ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
+// ДОБАВЛЯЕТСЯ ПОСЛЕ generateProfessionalLightingSolutions
+
+// ФУНКЦИЯ АНАЛИЗА ПОМЕЩЕНИЯ
+function analyzeRoomForDesign(data) {
+    const length = data.length;
+    const width = data.width;
+    const height = data.height;
+    const area = data.area;
+    const roomType = data.roomTypeText.toLowerCase();
+    
+    const longSide = Math.max(length, width);
+    const shortSide = Math.min(length, width);
+    const ratio = longSide / shortSide;
+    
+    // Определение назначения помещения
+    let roomPurpose = '';
+    if (roomType.includes('жил') || roomType.includes('детск') || roomType.includes('кухн')) {
+        roomPurpose = 'жилое';
+    } else if (roomType.includes('офис') || roomType.includes('кабинет')) {
+        roomPurpose = 'офисное';
+    } else if (roomType.includes('торгов')) {
+        roomPurpose = 'коммерческое';
+    } else if (roomType.includes('производ') || roomType.includes('склад')) {
+        roomPurpose = 'промышленное';
+    } else {
+        roomPurpose = 'жилое'; // по умолчанию
+    }
+    
+    return {
+        isNarrow: ratio > 2,
+        isSquare: ratio < 1.5,
+        ratio: ratio,
+        ceilingType: height < 2.7 ? 'низкий' : height > 3.5 ? 'высокий' : 'стандартный',
+        sizeCategory: area < 20 ? 'маленькое' : area < 50 ? 'среднее' : area < 100 ? 'большое' : 'очень большое',
+        roomPurpose: roomPurpose,
+        longSide: longSide,
+        shortSide: shortSide
+    };
+}
+
+// РЕАЛЬНЫЙ РАСЧЕТ ДЛЯ УДЛИНЕННЫХ ПОМЕЩЕНИЙ (14×6м)
+function calculateForNarrowRoom(length, width, area) {
+    const trackLines = Math.min(2, Math.ceil(width / 3));
+    const trackLength = Math.max(6, length - 2);
+    const trackLights = Math.ceil(trackLength / 1.2);
+    const panels = Math.min(4, Math.ceil(area / 40));
+    const spotlights = Math.ceil(area / 20);
+    
+    return {
+        trackLines: trackLines,
+        trackLength: trackLength,
+        trackLights: trackLights,
+        panels: panels,
+        spotlights: spotlights,
+        description: `Профессиональное решение для удлиненного помещения ${length.toFixed(1)}×${width.toFixed(1)}м`
+    };
+}
+
+// РАСЧЕТ СЕТКИ ОСВЕЩЕНИЯ
+function calculateLightingGrid(length, width, spacing) {
+    const pointsX = Math.max(2, Math.ceil(length / spacing));
+    const pointsY = Math.max(2, Math.ceil(width / spacing));
+    return {
+        grid: `${pointsX}×${pointsY}`,
+        total: pointsX * pointsY,
+        spacing: spacing,
+        layout: `${pointsX} точек по длине, ${pointsY} по ширине`
+    };
+}
+
+// ПРАВИЛА ДИЗАЙНА
+function getDesignRules(analysis) {
+    const rules = [];
+    
+    if (analysis.isNarrow) {
+        rules.push("Освещать вдоль длинных стен, а не поперек");
+        rules.push("Создать ритм светильников с равным шагом");
+        rules.push("Разделить на 2-3 зоны по длине");
+    }
+    
+    if (analysis.ceilingType === 'низкий') {
+        rules.push("Использовать встраиваемые светильники");
+        rules.push("Избегать подвесов длиннее 30см");
+    }
+    
+    if (analysis.sizeCategory === 'большое' || analysis.sizeCategory === 'очень большое') {
+        rules.push("Обязательное зонирование освещения");
+        rules.push("Несколько групп на разных выключателях");
+        rules.push("Комбинировать общее и локальное освещение");
+    }
+    
+    return rules;
+}
+
+// ==================== АНАЛИЗ ПОМЕЩЕНИЯ ДЛЯ ДИЗАЙНА ====================
+// ДОБАВЬТЕ ЭТУ ФУНКЦИЮ ПОСЛЕ generateProfessionalLightingSolutions
+function analyzeRoomForDesign(data) {
+    const length = data.length;
+    const width = data.width;
+    const height = data.height;
+    const area = data.area;
+    const roomType = data.roomTypeText.toLowerCase();
+    
+    // Анализ пропорций помещения
+    const longSide = Math.max(length, width);
+    const shortSide = Math.min(length, width);
+    const ratio = longSide / shortSide;
+    
+    let shapeType = '';
+    if (ratio > 2.5) shapeType = 'коридорное (очень удлиненное)';
+    else if (ratio > 2) shapeType = 'удлиненное';
+    else if (ratio > 1.5) shapeType = 'прямоугольное';
+    else shapeType = 'квадратное';
+    
+    // Определение типа помещения по назначению
+    let roomPurpose = '';
+    if (roomType.includes('жил') || roomType.includes('детск') || roomType.includes('кухн')) {
+        roomPurpose = 'жилое';
+    } else if (roomType.includes('офис') || roomType.includes('кабинет')) {
+        roomPurpose = 'офисное';
+    } else if (roomType.includes('торгов')) {
+        roomPurpose = 'коммерческое';
+    } else if (roomType.includes('производ') || roomType.includes('склад')) {
+        roomPurpose = 'промышленное';
+    }
+    
+    return {
+        shape: shapeType,
+        ratio: ratio,
+        roomPurpose: roomPurpose,
+        longSide: longSide,
+        shortSide: shortSide,
+        isNarrow: ratio > 2,
+        isSquare: ratio < 1.5,
+        ceilingType: height < 2.7 ? 'низкий' : height > 3.5 ? 'высокий' : 'стандартный',
+        sizeCategory: area < 20 ? 'маленькое' : area < 50 ? 'среднее' : area < 100 ? 'большое' : 'очень большое'
+    };
+}
+        // ==================== ПРОМЫШЛЕННЫЕ РЕШЕНИЯ ====================
+        function generateIndustrialSolution(data) {
             const area = data.area;
-            const roomType = data.roomTypeText.toLowerCase();
+            const height = data.height;
+            const requiredLumens = data.requiredLumens;
             
-            const solutions = generateLightingSolutions(data);
+            const lampType = getLampTypeByHeightAndArea(height, area, 'промышленное');
             
-            let html = `
-                <div class="ai-section">
-                    <div class="ai-section-title">
-                        <i class="fas fa-info-circle"></i>
-                        Анализ помещения
-                    </div>
-                    <div class="ai-option">
-                        <div class="ai-option-details">
-                            <p><strong>📐 Параметры:</strong> ${data.length} × ${data.width} × ${data.height}м = ${area.toFixed(1)} м²</p>
-                            <p><strong>🎯 Целевая освещенность:</strong> ${data.targetLux} лк (${data.modeText})</p>
-                            <p><strong>💡 Требуемый световой поток:</strong> ${data.requiredLumens.toLocaleString()} лм</p>
-                            <p><strong>📊 Категория помещения:</strong> ${getRoomCategory(area, data.height)}</p>
-                        </div>
-                        <div class="ai-option-stats">
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${getAreaStatus(area)}</div>
-                                <div class="ai-stat-label">Площадь</div>
-                            </div>
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${getHeightStatus(data.height)}</div>
-                                <div class="ai-stat-label">Высота</div>
-                            </div>
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${getRoomTypeComplexity(roomType)}</div>
-                                <div class="ai-stat-label">Сложность</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ai-section ai-recommendation">
-                    <div class="ai-section-title">
-                        <i class="fas fa-star"></i>
-                        Рекомендация AI
-                    </div>
-                    <div class="ai-option">
-                        <div class="ai-option-header">
-                            <div class="ai-option-title">${solutions.recommended.name}</div>
-                            <div class="ai-option-badge">Лучший выбор</div>
-                        </div>
-                        <div class="ai-option-details">
-                            ${solutions.recommended.description}
-                            <ul>
-                                ${solutions.recommended.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <div class="ai-option-stats">
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${solutions.recommended.count}</div>
-                                <div class="ai-stat-label">Шт.</div>
-                            </div>
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${solutions.recommended.totalPower} Вт</div>
-                                <div class="ai-stat-label">Мощность</div>
-                            </div>
-                            <div class="ai-stat">
-                                <div class="ai-stat-value">${solutions.recommended.coverage}</div>
-                                <div class="ai-stat-label">Покрытие</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ai-section">
-                    <div class="ai-section-title">
-                        <i class="fas fa-lightbulb"></i>
-                        Альтернативные варианты
-                    </div>
-                
-                    ${solutions.alternatives.map(alt => `
-                    <div class="ai-option">
-                        <div class="ai-option-header">
-                            <div class="ai-option-title">${alt.name}</div>
-                            <div class="ai-option-badge">${alt.type}</div>
-                        </div>
-                        <div class="ai-option-details">
-                            ${alt.description}
-                            <div class="ai-option-stats">
-                                <div class="ai-stat">
-                                    <div class="ai-stat-value">${alt.count}</div>
-                                    <div class="ai-stat-label">Шт.</div>
-                                </div>
-                                <div class="ai-stat">
-                                    <div class="ai-stat-value">${alt.totalPower} Вт</div>
-                                    <div class="ai-stat-label">Мощность</div>
-                                </div>
-                                <div class="ai-stat">
-                                    <div class="ai-stat-value">${alt.installation}</div>
-                                    <div class="ai-stat-label">Монтаж</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    `).join('')}
-                </div>
-                
-                <div class="ai-section">
-                    <div class="ai-section-title">
-                        <i class="fas fa-tools"></i>
-                        Практические советы
-                    </div>
-                    <div class="ai-tips">
-                        <div class="ai-tip">
-                            <i class="fas fa-ruler-combined"></i>
-                            Шаг размещения: ${solutions.placement.spacing.toFixed(1)}м
-                        </div>
-                        <div class="ai-tip">
-                            <i class="fas fa-sun"></i>
-                            Цветовая температура: ${getRecommendedColorTemperature(roomType)}
-                        </div>
-                        <div class="ai-tip">
-                            <i class="fas fa-bolt"></i>
-                            Потребление: ~${solutions.energyConsumption.toFixed(1)} кВт·ч/мес
-                        </div>
-                        <div class="ai-tip">
-                            <i class="fas fa-money-bill-wave"></i>
-                            Окупаемость: ${solutions.payback} лет
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ai-section ai-warning">
-                    <div class="ai-section-title">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        Особенности для высоты ${data.height}м
-                    </div>
-                    <div class="ai-option">
-                        <div class="ai-option-details">
-                            ${getHeightSpecificTips(data.height, area)}
-                        </div>
-                    </div>
-                </div>
-            `;
+            // Определяем тип промышленных светильников
+            let fixtureType, fixturesCount;
             
-            aiPanelContent.innerHTML = html;
-            aiPanelContent.scrollTop = 0;
+            if (height > 8) {
+                // Прожекторное освещение
+                fixtureType = 'Промышленные прожекторы';
+                fixturesCount = Math.ceil(requiredLumens / lampType.lumens);
+            } else if (height > 6) {
+                // Подвесные промышленные светильники
+                fixtureType = 'Промышленные подвесные светильники';
+                fixturesCount = Math.ceil(area / 40); // 1 светильник на 40 м²
+            } else {
+                // Потолочные промышленные светильники
+                fixtureType = 'Промышленные потолочные светильники';
+                fixturesCount = Math.ceil(area / 25); // 1 светильник на 25 м²
+            }
+            
+            // Расчет мощности и освещенности
+            const totalPower = fixturesCount * lampType.power;
+            const actualLumens = fixturesCount * lampType.lumens;
+            
+            return {
+                type: 'Промышленное решение',
+                name: `${fixturesCount} × ${lampType.power}Вт ${fixtureType}`,
+                mainFixtures: [
+                    {
+                        type: fixtureType,
+                        count: fixturesCount,
+                        details: `лампы ${lampType.power}Вт (${lampType.lumens}лм), патрон ${lampType.socket}`
+                    }
+                ],
+                totalFixtures: fixturesCount,
+                totalPower: totalPower,
+                totalLumens: actualLumens,
+                installation: 'Промышленный монтаж на высоте',
+                cost: calculateIndustrialCost(fixturesCount, lampType.power, area),
+                colorTemp: '4000-5000K (нейтральный/холодный)',
+                advantages: [
+                    'Высокая надежность',
+                    'Защита от пыли и влаги',
+                    'Долгий срок службы',
+                    'Простое обслуживание',
+                    'Высокая светоотдача'
+                ],
+                specialFeatures: [
+                    `IP65/IP67 защита`,
+                    `Рабочая температура: -40°C до +50°C`,
+                    `Срок службы: 50,000+ часов`,
+                    `Коэффициент пульсации: <1%`
+                ]
+            };
         }
 
-        function generateLightingSolutions(data) {
+        function generateHighPowerSolution(data) {
+            const area = data.area;
+            const height = data.height;
+            
+            // Выбираем мощные лампы в зависимости от высоты
+            let lampType;
+            if (height > 10) {
+                lampType = lampTypes.led150w;
+            } else if (height > 8) {
+                lampType = lampTypes.led120w;
+            } else if (height > 6) {
+                lampType = lampTypes.led100w;
+            } else if (height > 5) {
+                lampType = lampTypes.led80w;
+            } else if (height > 4) {
+                lampType = lampTypes.led60w;
+            } else {
+                lampType = lampTypes.led40w;
+            }
+            
+            // Расчет количества светильников
+            const fixturesCount = Math.ceil(data.requiredLumens / lampType.lumens);
+            
+            // Распределение светильников
+            const rows = Math.ceil(Math.sqrt(fixturesCount));
+            const cols = Math.ceil(fixturesCount / rows);
+            const spacing = Math.sqrt(area / fixturesCount);
+            
+            return {
+                type: 'Мощное освещение',
+                name: `${fixturesCount} светильников по ${lampType.power}Вт`,
+                mainFixtures: [
+                    {
+                        type: `Мощные светильники ${lampType.power}Вт`,
+                        count: fixturesCount,
+                        details: `патрон ${lampType.socket}, ${lampType.lumens.toLocaleString()}лм`
+                    }
+                ],
+                layout: {
+                    rows: rows,
+                    columns: cols,
+                    spacing: spacing.toFixed(1),
+                    pattern: 'равномерная сетка'
+                },
+                totalFixtures: fixturesCount,
+                totalPower: fixturesCount * lampType.power,
+                totalLumens: fixturesCount * lampType.lumens,
+                installation: 'Профессиональный промышленный монтаж',
+                cost: calculateIndustrialCost(fixturesCount, lampType.power, area),
+                colorTemp: '5000-6500K (дневной свет)',
+                advantages: [
+                    'Максимальная освещенность',
+                    'Минимальное количество точек',
+                    'Легкость обслуживания',
+                    'Высокая надежность'
+                ]
+            };
+        }
+
+        function generateIndustrialPanelSolution(data) {
+            const area = data.area;
+            
+            // Промышленные LED панели высокой мощности
+            const panelTypes = [
+                { size: '600x600mm', power: 72, lumens: 6600 },
+                { size: '600x1200mm', power: 144, lumens: 13200 },
+                { size: '1200x1200mm', power: 288, lumens: 26400 }
+            ];
+            
+            const panelType = area > 200 ? panelTypes[2] : area > 100 ? panelTypes[1] : panelTypes[0];
+            const panelsCount = Math.ceil(data.requiredLumens / panelType.lumens);
+            
+            return {
+                type: 'Промышленные LED панели',
+                name: `${panelsCount} панелей ${panelType.size}`,
+                mainFixtures: [
+                    {
+                        type: `LED панели ${panelType.size}`,
+                        count: panelsCount,
+                        details: `${panelType.power}Вт, ${panelType.lumens.toLocaleString()}лм`
+                    }
+                ],
+                totalFixtures: panelsCount,
+                totalPower: panelsCount * panelType.power,
+                totalLumens: panelsCount * panelType.lumens,
+                installation: 'Подвесная система',
+                cost: calculateIndustrialCost(panelsCount, panelType.power, area),
+                colorTemp: '4000-5000K',
+                advantages: [
+                    'Максимальная равномерность',
+                    'Антивандальное исполнение',
+                    'Пылевлагозащита IP65',
+                    'Срок службы 100,000 часов'
+                ]
+            };
+        }
+
+        function generateHybridIndustrialSolution(data) {
+            // Комбинированное решение: мощные прожекторы + локальное освещение
+            const mainFixturesCount = Math.ceil(data.area / 50);
+            const localFixturesCount = Math.ceil(data.area / 100) * 2;
+            
+            return {
+                type: 'Гибридное промышленное',
+                name: `${mainFixturesCount} прожекторов + ${localFixturesCount} локальных светильников`,
+                mainFixtures: [
+                    {
+                        type: 'Промышленные прожекторы 150Вт',
+                        count: mainFixturesCount,
+                        details: 'основное заливающее освещение'
+                    },
+                    {
+                        type: 'Локальные светильники 50Вт',
+                        count: localFixturesCount,
+                        details: 'рабочее место, дополнительное освещение'
+                    }
+                ],
+                totalFixtures: mainFixturesCount + localFixturesCount,
+                totalPower: (mainFixturesCount * 150) + (localFixturesCount * 50),
+                totalLumens: (mainFixturesCount * 12750) + (localFixturesCount * 4250),
+                installation: 'Профессиональный с зонированием',
+                cost: calculateIndustrialCost(mainFixturesCount + localFixturesCount, 100, data.area),
+                colorTemp: '4000K (основное) + 5000K (рабочее)',
+                advantages: [
+                    'Гибкое зонирование',
+                    'Энергоэффективность',
+                    'Комфортные условия работы',
+                    'Простое обслуживание'
+                ]
+            };
+        }
+
+        function generateEconomyIndustrialSolution(data) {
+            // Экономное промышленное решение
+            const fixturesCount = Math.ceil(data.area / 60);
+            
+            return {
+                type: 'Экономное промышленное',
+                name: `${fixturesCount} светильников с лампами 50Вт`,
+                mainFixtures: [
+                    {
+                        type: 'Промышленные светильники',
+                        count: fixturesCount,
+                        details: 'лампы 50Вт (4,250лм), патрон E40'
+                    }
+                ],
+                totalFixtures: fixturesCount,
+                totalPower: fixturesCount * 50,
+                totalLumens: fixturesCount * 4250,
+                installation: 'Базовый промышленный монтаж',
+                cost: calculateIndustrialCost(fixturesCount, 50, data.area),
+                colorTemp: '4000-5000K',
+                advantages: [
+                    'Низкая стоимость',
+                    'Простой монтаж',
+                    'Доступность запчастей',
+                    'Экономичность'
+                ]
+            };
+        }
+
+        function calculateIndustrialCost(fixturesCount, power, area) {
+            const baseCostPerWatt = 15; // Рублей за ватт для промышленного оборудования
+            const totalCost = fixturesCount * power * baseCostPerWatt;
+            
+            if (totalCost > 1000000) {
+                return `${(totalCost/1000000).toFixed(1)}-${(totalCost*1.3/1000000).toFixed(1)} млн руб.`;
+            } else if (totalCost > 100000) {
+                return `${(totalCost/1000).toFixed(0)}-${(totalCost*1.3/1000).toFixed(0)} тыс. руб.`;
+            } else {
+                return `${totalCost.toFixed(0)}-${(totalCost*1.3).toFixed(0)} руб.`;
+            }
+        }
+
+        // ==================== ОФИСНЫЕ РЕШЕНИЯ ====================
+        function generateOfficeSolution(data) {
+            const area = data.area;
+            const height = data.height;
+            
+            // LED панели для офисов
+            const panelSize = area > 30 ? '60×60см' : '30×120см';
+            const panelLumens = 3300;
+            const panelsCount = Math.ceil(data.requiredLumens / panelLumens);
+            const additionalSpotlights = Math.ceil(area / 20);
+            
+            return {
+                type: 'Офисное LED освещение',
+                name: `${panelsCount} LED панелей ${panelSize} + ${additionalSpotlights} спотов`,
+                mainFixtures: [
+                    {
+                        type: 'LED панели',
+                        count: panelsCount,
+                        details: panelSize
+                    },
+                    {
+                        type: 'Точечные',
+                        count: additionalSpotlights,
+                        details: 'акцентное освещение'
+                    }
+                ],
+                totalFixtures: panelsCount + additionalSpotlights,
+                totalPower: (panelsCount * 36) + (additionalSpotlights * 9),
+                totalLumens: (panelsCount * panelLumens) + (additionalSpotlights * 765),
+                installation: 'Подвесной потолок',
+                cost: calculateOfficeCost(panelsCount, additionalSpotlights, area),
+                colorTemp: '4000-4500K',
+                advantages: [
+                    'Максимальная равномерность',
+                    'Минимальное энергопотребление',
+                    'Современный дизайн',
+                    'Долгий срок службы'
+                ]
+            };
+        }
+
+        function generateOfficeChandelierSolution(data) {
+            // Офисные люстры
+            const fixturesCount = Math.ceil(data.area / 25);
+            
+            return {
+                type: 'Офисные люстры',
+                name: `${fixturesCount} офисных люстр`,
+                mainFixtures: [
+                    {
+                        type: 'Офисные люстры',
+                        count: fixturesCount,
+                        details: '12-18 рожков, лампы 13Вт'
+                    }
+                ],
+                totalFixtures: fixturesCount,
+                totalPower: fixturesCount * 12 * 13,
+                totalLumens: fixturesCount * 12 * 1105,
+                installation: 'Офисный монтаж',
+                cost: calculateOfficeCost(fixturesCount, 0, data.area),
+                colorTemp: '4000-4500K',
+                advantages: [
+                    'Официальный вид',
+                    'Хорошее рассеивание',
+                    'Легкость обслуживания',
+                    'Традиционный вариант'
+                ]
+            };
+        }
+
+        function generateOfficeCombinedSolution(data) {
+            const area = data.area;
+            const panelsCount = Math.ceil(area / 20);
+            const trackLightsCount = Math.ceil(area / 30);
+            
+            return {
+                type: 'Комбинированный офис',
+                name: `${panelsCount} панелей + ${trackLightsCount} трековых светильников`,
+                mainFixtures: [
+                    {
+                        type: 'LED панели 60×60см',
+                        count: panelsCount,
+                        details: 'основное освещение'
+                    },
+                    {
+                        type: 'Трековые светильники',
+                        count: trackLightsCount,
+                        details: 'рабочие зоны, переговоры'
+                    }
+                ],
+                totalFixtures: panelsCount + trackLightsCount,
+                totalPower: (panelsCount * 36) + (trackLightsCount * 25),
+                totalLumens: (panelsCount * 3300) + (trackLightsCount * 2125),
+                installation: 'Комбинированный',
+                cost: calculateOfficeCost(panelsCount, trackLightsCount, area),
+                colorTemp: '4000K (основное) + 5000K (рабочее)',
+                advantages: [
+                    'Гибкое зонирование',
+                    'Профессиональный вид',
+                    'Энергоэффективность',
+                    'Возможность перестановки'
+                ]
+            };
+        }
+
+        function generateOfficeModernSolution(data) {
+            const area = data.area;
+            const linearLength = Math.ceil(area / 10);
+            const smartLightsCount = Math.ceil(area / 15);
+            
+            return {
+                type: 'Современный smart-офис',
+                name: `${linearLength}м линейных + ${smartLightsCount} умных светильников`,
+                mainFixtures: [
+                    {
+                        type: 'Линейные светильники',
+                        count: linearLength,
+                        details: 'основное освещение'
+                    },
+                    {
+                        type: 'Умные светильники',
+                        count: smartLightsCount,
+                        details: 'сенсорное управление, регулировка'
+                    }
+                ],
+                totalFixtures: linearLength + smartLightsCount,
+                totalPower: (linearLength * 30) + (smartLightsCount * 10),
+                totalLumens: (linearLength * 1650) + (smartLightsCount * 800),
+                installation: 'Профессиональный smart-монтаж',
+                cost: calculateOfficeCost(linearLength, smartLightsCount, area * 1.2),
+                colorTemp: '2700-6500K (регулируемая)',
+                advantages: [
+                    'Умное управление',
+                    'Минималистичный дизайн',
+                    'Энергоэффективность',
+                    'Гибкие сценарии освещения'
+                ]
+            };
+        }
+
+        function generateOfficeEconomySolution(data) {
+            const area = data.area;
+            const plafondCount = Math.ceil(area / 15);
+            const lampCount = Math.ceil(area / 10);
+            
+            return {
+                type: 'Экономный офис',
+                name: `${plafondCount} плафонов + ${lampCount} LED ламп`,
+                mainFixtures: [
+                    {
+                        type: 'Плафоны',
+                        count: plafondCount,
+                        details: 'простые, белые'
+                    },
+                    {
+                        type: 'LED лампы 13Вт',
+                        count: lampCount,
+                        details: 'дополнительное освещение'
+                    }
+                ],
+                totalFixtures: plafondCount + lampCount,
+                totalPower: (plafondCount * 20) + (lampCount * 13),
+                totalLumens: (plafondCount * 1700) + (lampCount * 1105),
+                installation: 'Простой монтаж',
+                cost: calculateOfficeCost(plafondCount, lampCount, area * 0.7),
+                colorTemp: '4000K',
+                advantages: [
+                    'Минимальная стоимость',
+                    'Простой монтаж',
+                    'Низкое энергопотребление',
+                    'Легкая замена'
+                ]
+            };
+        }
+
+        function calculateOfficeCost(fixturesCount1, fixturesCount2, area) {
+            const baseCost = (fixturesCount1 + fixturesCount2) * 1500;
+            if (area < 30) return `${Math.round(baseCost * 0.8)}-${Math.round(baseCost * 1.5)} тыс. руб.`;
+            if (area < 80) return `${Math.round(baseCost)}-${Math.round(baseCost * 1.8)} тыс. руб.`;
+            return `${Math.round(baseCost * 1.2)}-${Math.round(baseCost * 2.2)} тыс. руб.`;
+        }
+
+        // ==================== ЖИЛЫЕ РЕШЕНИЯ ====================
+function generateResidentialOptimalSolution(data) {
+    const area = data.area;
+    const length = data.length;
+    const width = data.width;
+    const height = data.height;
+    const requiredLumens = data.requiredLumens;
+    
+    // ПРАВИЛЬНЫЙ РАСЧЕТ: 1 люстра на 6-7 метров длины помещения
+    const roomLength = Math.max(length, width);
+    const roomWidth = Math.min(length, width);
+    
+    // Количество люстр по длине помещения
+    let chandeliersCount = Math.ceil(roomLength / 6); // 1 люстра на 6 метров
+    chandeliersCount = Math.min(chandeliersCount, 3); // максимум 3 люстры
+    
+    // Определяем количество рожков в зависимости от ширины помещения
+    let hornsPerChandelier;
+    if (roomWidth <= 3) {
+        hornsPerChandelier = 3; // 3-5 рожков для узких помещений
+    } else if (roomWidth <= 4) {
+        hornsPerChandelier = 5; // 5-8 рожков
+    } else if (roomWidth <= 5) {
+        hornsPerChandelier = 8; // 8-12 рожков
+    } else if (roomWidth <= 6) {
+        hornsPerChandelier = 12; // 12-18 рожков
+    } else {
+        hornsPerChandelier = 18; // 18-24 рожка для широких помещений
+    }
+    
+    // Корректируем для высоких/низких потолков
+    if (height < 2.7) {
+        // Низкие потолки - меньше рожков, больше точечных
+        hornsPerChandelier = Math.max(3, Math.floor(hornsPerChandelier * 0.7));
+    } else if (height > 3.5) {
+        // Высокие потолки - можно больше рожков
+        hornsPerChandelier = Math.floor(hornsPerChandelier * 1.2);
+    }
+    
+    // Выбираем лампы по высоте потолка
+    let lampType;
+    let lampLumens;
+    if (height <= 2.7) {
+        lampType = lampTypes.led6w; // 510 лм
+        lampLumens = 510;
+    } else if (height <= 3.0) {
+        lampType = lampTypes.led9w; // 765 лм
+        lampLumens = 765;
+    } else if (height <= 3.5) {
+        lampType = lampTypes.led13w; // 1105 лм
+        lampLumens = 1105;
+    } else if (height <= 4.0) {
+        lampType = lampTypes.led20w; // 1700 лм
+        lampLumens = 1700;
+    } else {
+        lampType = lampTypes.led30w; // 2550 лм
+        lampLumens = 2550;
+    }
+    
+    // Считаем общий световой поток от люстр
+    const chandeliersLumens = chandeliersCount * hornsPerChandelier * lampLumens;
+    const remainingLumens = Math.max(0, requiredLumens - chandeliersLumens);
+    
+    // Добавляем точечные светильники для компенсации
+    let additionalFixtures = [];
+    if (remainingLumens > 0) {
+        const spotlightsNeeded = Math.ceil(remainingLumens / lampLumens);
+        const spotlightsPerRow = Math.ceil(roomLength / 1.5); // шаг 1.5 метра
+        const rows = Math.ceil(roomWidth / 1.5); // шаг 1.5 метра
+        const spotlightsCount = Math.min(spotlightsNeeded, spotlightsPerRow * rows);
+        
+        if (spotlightsCount > 0) {
+            additionalFixtures.push({
+                type: 'Точечные светильники',
+                count: spotlightsCount,
+                details: 'компенсируют недостаток света, шаг 1.5м'
+            });
+        }
+    }
+    
+    // Добавляем дополнительные варианты освещения
+    if (area > 30) {
+        // Для больших помещений добавляем бра
+        const wallLightsCount = Math.ceil(roomLength * 2 / 4); // каждые 4 метра по стене
+        additionalFixtures.push({
+            type: 'Бра (декоративные)',
+            count: wallLightsCount,
+            details: 'настенное освещение для атмосферы'
+        });
+    }
+    
+    if (roomWidth > 5) {
+        // Для широких помещений - трековые светильники
+        const trackLength = Math.ceil(roomLength);
+        additionalFixtures.push({
+            type: 'Трековые светильники',
+            count: Math.ceil(trackLength / 2),
+            details: `${trackLength}м трековой системы`
+        });
+    }
+    
+    const totalFixtures = chandeliersCount + additionalFixtures.reduce((sum, f) => sum + f.count, 0);
+    const totalPower = (chandeliersCount * hornsPerChandelier * lampType.power) + 
+                       (additionalFixtures.reduce((sum, f) => sum + (f.count * 9), 0)); // 9Вт для точечных
+    
+    return {
+        type: 'Центральные люстры + компенсация',
+        name: `${chandeliersCount} люстр${chandeliersCount > 1 ? 'ы' : 'а'} по ${hornsPerChandelier} рожков`,
+        fixtures: [
+            {
+                type: 'Люстр' + (chandeliersCount > 1 ? 'ы' : 'а'),
+                count: chandeliersCount,
+                details: `${hornsPerChandelier} рожков, лампы ${lampType.power}Вт (${lampLumens}лм)`
+            }
+        ],
+        spotlights: additionalFixtures,
+        layout: {
+            chandeliers: chandeliersCount,
+            horns: hornsPerChandelier,
+            spotlights: additionalFixtures.find(f => f.type.includes('Точечные'))?.count || 0,
+            spacing: '1.5м между точками'
+        },
+        totalFixtures: totalFixtures,
+        totalPower: totalPower,
+        totalLumens: chandeliersLumens + (additionalFixtures.reduce((sum, f) => sum + (f.count * lampLumens), 0)),
+        installation: height > 3.0 ? 'С регулируемым подвесом' : 'Стандартный',
+        cost: calculateResidentialCost(chandeliersCount * hornsPerChandelier, lampType.power, area),
+        colorTemp: '2700-3000K',
+        advantages: [
+            'Реалистичное расположение',
+            'Равномерное освещение',
+            'Компенсация недостатка света',
+            'Профессиональный подход'
+        ]
+    };
+}
+
+function generateChandelierSolution(data) {
+    const area = data.area;
+    const length = data.length;
+    const width = data.width;
+    const height = data.height;
+    
+    // Правило: 1 люстра на 6 метров длины
+    const roomLength = Math.max(length, width);
+    let chandeliersCount = Math.ceil(roomLength / 6);
+    chandeliersCount = Math.min(chandeliersCount, 3); // не более 3 люстр
+    
+    // Количество рожков в зависимости от ширины
+    const roomWidth = Math.min(length, width);
+    let hornsPerChandelier;
+    
+    if (area <= 15) {
+        hornsPerChandelier = 3;
+    } else if (area <= 25) {
+        hornsPerChandelier = 5;
+    } else if (area <= 35) {
+        hornsPerChandelier = 8;
+    } else if (area <= 50) {
+        hornsPerChandelier = 12;
+    } else if (area <= 70) {
+        hornsPerChandelier = 18;
+    } else {
+        hornsPerChandelier = 24;
+    }
+    
+    // Корректировка для количества люстр
+    if (chandeliersCount > 1) {
+        hornsPerChandelier = Math.ceil(hornsPerChandelier / chandeliersCount);
+    }
+    
+    // Лампы по высоте
+    let lampType;
+    if (height <= 2.7) {
+        lampType = lampTypes.led6w;
+    } else if (height <= 3.5) {
+        lampType = lampTypes.led9w;
+    } else {
+        lampType = lampTypes.led13w;
+    }
+    
+    return {
+        type: 'Реалистичные люстры',
+        name: `${chandeliersCount} люстр${chandeliersCount > 1 ? 'ы' : 'а'} по ${hornsPerChandelier} рожков`,
+        mainFixtures: [
+            {
+                type: 'Люстр' + (chandeliersCount > 1 ? 'ы' : 'а'),
+                count: chandeliersCount,
+                details: `${hornsPerChandelier} рожков, лампы ${lampType.power}Вт (${lampType.lumens}лм)`
+            }
+        ],
+        totalFixtures: chandeliersCount,
+        totalPower: chandeliersCount * hornsPerChandelier * lampType.power,
+        totalLumens: chandeliersCount * hornsPerChandelier * lampType.lumens,
+        installation: height > 3.0 ? 'С регулируемым подвесом' : 'Стандартный',
+        cost: calculateResidentialCost(chandeliersCount * hornsPerChandelier, lampType.power, area),
+        colorTemp: '2700-3000K',
+        advantages: [
+            'Правильное распределение',
+            'Достаточное освещение',
+            'Реалистичный дизайн',
+            'Легкость обслуживания'
+        ]
+    };
+}
+
+function calculateByElectricianMethod(data) {
+    const length = data.length;
+    const width = data.width;
+    const height = data.height;
+    const area = data.area;
+    const requiredLumens = data.requiredLumens;
+    
+    // Ваш метод расчета: 1234567 Люстра 1234567 люстра 1234567 люстра
+    const segments = 7; // 7 метров на одну люстру
+    const maxChandeliers = Math.ceil(length / segments);
+    
+    let chandeliersCount;
+    let hornsPerChandelier;
+    
+    if (length <= 7) {
+        chandeliersCount = 1;
+        hornsPerChandelier = Math.min(24, Math.ceil(width / 1.5) * 2);
+    } else if (length <= 14) {
+        chandeliersCount = 2;
+        hornsPerChandelier = Math.min(12, Math.ceil(width / 1.5) * 2);
+    } else {
+        chandeliersCount = 3;
+        hornsPerChandelier = Math.min(8, Math.ceil(width / 1.5) * 2);
+    }
+    
+    // Ограничение по высоте потолка
+    if (height < 3.0 && hornsPerChandelier > 12) {
+        hornsPerChandelier = 12; // Нельзя вешать большие люстры на низкие потолки
+    }
+    
+    // Выбор ламп
+    let lampPower;
+    let lampLumens;
+    
+    if (height <= 2.7) {
+        lampPower = 6; // 510 лм
+        lampLumens = 510;
+    } else if (height <= 3.2) {
+        lampPower = 9; // 765 лм
+        lampLumens = 765;
+    } else if (height <= 3.5) {
+        lampPower = 13; // 1105 лм
+        lampLumens = 1105;
+    } else {
+        lampPower = 20; // 1700 лм
+        lampLumens = 1700;
+    }
+    
+    // Считаем люмены от люстр
+    const chandeliersLumens = chandeliersCount * hornsPerChandelier * lampLumens;
+    const remainingLumens = Math.max(0, requiredLumens - chandeliersLumens);
+    
+    // Точечные для компенсации
+    let spotlightsCount = 0;
+    if (remainingLumens > 0) {
+        // Распределяем точечные по сетке 1.5×1.5м
+        const spotsX = Math.ceil(length / 1.5);
+        const spotsY = Math.ceil(width / 1.5);
+        spotlightsCount = Math.min(Math.ceil(remainingLumens / lampLumens), spotsX * spotsY);
+    }
+    
+    return {
+        chandeliersCount,
+        hornsPerChandelier,
+        lampPower,
+        lampLumens,
+        spotlightsCount,
+        totalLumens: chandeliersLumens + (spotlightsCount * lampLumens)
+    };
+}
+
+
+// ==================== КОМБИНИРОВАННОЕ РЕАЛИСТИЧНОЕ РЕШЕНИЕ ====================
+// ЗАМЕНИТЕ СТАРУЮ ФУНКЦИЮ НА ЭТУ
+function generateCombinedSolution(data) {
+    const analysis = analyzeRoomForDesign(data);
+    const length = data.length;
+    const width = data.width;
+    const area = data.area;
+    
+    // РЕАЛЬНАЯ КОМБИНАЦИЯ ДЛЯ ЖИЛЫХ ПОМЕЩЕНИЙ
+    
+    // 1. Центральный свет (люстра/панель)
+    const centralFixtures = Math.ceil(area / 30); // 1 на 30м²
+    
+    // 2. Точечные для общего освещения
+    const gridX = Math.ceil(length / 1.8); // шаг 1.8м
+    const gridY = Math.ceil(width / 1.8); // шаг 1.8м
+    const spotlightsCount = gridX * gridY;
+    
+    // 3. Декоративное освещение
+    const decorativeCount = Math.max(2, Math.ceil(length / 4)); // каждые 4 метра
+    
+    return {
+        type: 'Комбинированное многоуровневое',
+        name: `${centralFixtures} центральных + ${spotlightsCount} точечных + ${decorativeCount} декоративных`,
+        mainFixtures: [
+            {
+                type: 'Центральные светильники',
+                count: centralFixtures,
+                details: area < 40 ? '1 люстра' : '2-3 панели/подвеса'
+            },
+            {
+                type: 'Точечные светильники',
+                count: spotlightsCount,
+                details: `сетка ${gridX}×${gridY}, шаг 1.8м`
+            },
+            {
+                type: 'Декоративные (бра, подсветка)',
+                count: decorativeCount,
+                details: 'атмосферное освещение'
+            }
+        ],
+        layout: `Центральные: ${centralFixtures}шт, Точечные: ${gridX}×${gridY}, Бра: ${decorativeCount}шт`,
+        // ... остальные параметры
+    };
+}
+
+// ==================== СОВРЕМЕННОЕ РЕАЛИСТИЧНОЕ РЕШЕНИЕ ====================
+// ЗАМЕНИТЕ СТАРУЮ ФУНКЦИЮ НА ЭТУ
+function generateModernSolution(data) {
+    const area = data.area;
+    const height = data.height;
+    const roomType = data.roomTypeText.toLowerCase();
+    const requiredLumens = data.requiredLumens;
+    
+    // ПРОСТОЙ РАСЧЕТ БЕЗ ВЫЗОВА НЕСУЩЕСТВУЮЩЕЙ ФУНКЦИИ
+    
+    const panelCount = Math.max(2, Math.min(6, Math.ceil(area / 25)));
+    const linearMeters = Math.ceil(Math.min(area * 0.3, 20));
+    const smartLightsCount = Math.max(2, Math.min(6, Math.ceil(area / 30)));
+    
+    return {
+        type: 'Современный smart-дизайн',
+        name: `${panelCount} панелей + ${linearMeters}м линейных + ${smartLightsCount} умных`,
+        mainFixtures: [
+            { type: 'LED панели', count: panelCount, details: 'основной свет' },
+            { type: 'Линейные', count: linearMeters, details: `${linearMeters}м по периметру` },
+            { type: 'Умные светильники', count: smartLightsCount, details: 'управление через приложение' }
+        ],
+        totalFixtures: panelCount + linearMeters + smartLightsCount,
+        totalPower: (panelCount * 36) + (linearMeters * 30) + (smartLightsCount * 10),
+        totalLumens: (panelCount * 3300) + (linearMeters * 1650) + (smartLightsCount * 800),
+        installation: 'Профессиональный smart-монтаж',
+        cost: calculateResidentialCost(panelCount + linearMeters + smartLightsCount, 25, area * 1.5),
+        colorTemp: '2700-6500K (регулируемая)',
+        advantages: [
+            'Умное управление',
+            'Минималистичный дизайн',
+            'Энергоэффективность',
+            'Гибкие сценарии'
+        ]
+    };
+}
+
+        function generateEconomySolution(data) {
+            const area = data.area;
+            
+            const plafondCount = Math.ceil(area / 10);
+            const lampCount = Math.ceil(area / 15);
+            
+            return {
+                type: 'Экономный вариант',
+                name: `${plafondCount} плафонов + ${lampCount} LED ламп`,
+                mainFixtures: [
+                    { type: 'Плафоны', count: plafondCount, details: 'простые, белые' },
+                    { type: 'LED лампы 9Вт', count: lampCount, details: 'дополнительное освещение' }
+                ],
+                totalFixtures: plafondCount + lampCount,
+                totalPower: (plafondCount * 13) + (lampCount * 9),
+                totalLumens: (plafondCount * 1105) + (lampCount * 765),
+                installation: 'Простой монтаж',
+                cost: calculateResidentialCost(plafondCount + lampCount, 10, area * 0.7),
+                colorTemp: '3000K',
+                advantages: [
+                    'Минимальная стоимость',
+                    'Простой монтаж',
+                    'Низкое энергопотребление',
+                    'Легкая замена'
+                ]
+            };
+        }
+
+        function calculateResidentialCost(fixtureCount, avgPower, area) {
+            const baseCost = fixtureCount * (avgPower * 12);
+            if (area < 20) return `${Math.round(baseCost * 0.8)}-${Math.round(baseCost * 1.2)} тыс. руб.`;
+            if (area < 50) return `${Math.round(baseCost * 0.9)}-${Math.round(baseCost * 1.5)} тыс. руб.`;
+            return `${Math.round(baseCost)}-${Math.round(baseCost * 2)} тыс. руб.`;
+        }
+
+        // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ ЛАМП ====================
+        function getLampTypeByHeightAndArea(height, area, roomType) {
+            const isIndustrial = roomType.includes('производ') || roomType.includes('склад') || 
+                                roomType.includes('ангар') || roomType.includes('цех');
+            const isCommercialLarge = roomType.includes('торгов') && area > 100;
+            const isSports = roomType.includes('спорт') || roomType.includes('зал');
+            
+            // ПРОМЫШЛЕННЫЕ/КОММЕРЧЕСКИЕ БОЛЬШИЕ ПОМЕЩЕНИЯ
+            if (isIndustrial || isCommercialLarge || isSports) {
+                if (height > 8) {
+                    if (area > 500) return lampTypes.led150w;
+                    if (area > 300) return lampTypes.led120w;
+                    if (area > 150) return lampTypes.led100w;
+                    return lampTypes.led80w;
+                } else if (height > 6) {
+                    if (area > 300) return lampTypes.led100w;
+                    if (area > 150) return lampTypes.led80w;
+                    if (area > 80) return lampTypes.led60w;
+                    return lampTypes.led50w;
+                } else if (height > 4.5) {
+                    if (area > 200) return lampTypes.led60w;
+                    if (area > 100) return lampTypes.led50w;
+                    return lampTypes.led40w;
+                }
+            }
+            
+            // ЖИЛЫЕ И ОФИСНЫЕ ПОМЕЩЕНИЯ
+            if (height <= 2.7) {
+                return lampTypes.led6w;
+            } else if (height <= 3.5) {
+                if (area > 50) return lampTypes.led20w;
+                if (area > 30) return lampTypes.led13w;
+                return lampTypes.led9w;
+            } else if (height <= 4.5) {
+                if (area > 80) return lampTypes.led30w;
+                if (area > 50) return lampTypes.led20w;
+                return lampTypes.led13w;
+            } else if (height <= 6) {
+                if (area > 100) return lampTypes.led40w;
+                if (area > 60) return lampTypes.led30w;
+                return lampTypes.led20w;
+            } else {
+                if (area > 200) return lampTypes.led60w;
+                if (area > 100) return lampTypes.led50w;
+                return lampTypes.led40w;
+            }
+        }
+
+        // ==================== ФУНКЦИИ ГЕНЕРАЦИИ HTML ДЛЯ AI ====================
+function generateOptimalSolution(solution) {
+    // Защита от undefined
+    if (!solution || !solution.name) {
+        return `
+            <div class="ai-option">
+                <div class="ai-option-header">
+                    <div class="ai-option-title">Не удалось сгенерировать решение</div>
+                    <div class="ai-option-badge">Ошибка</div>
+                </div>
+                <div class="ai-option-details">
+                    <p>Произошла ошибка при генерации оптимального решения. Попробуйте снова.</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    const fixturesList = solution.fixtures && Array.isArray(solution.fixtures) 
+        ? solution.fixtures.map(f => `<li>${f.count} × ${f.type} (${f.details})</li>`).join('')
+        : '<li>Нет данных о приборах</li>';
+        
+    const spotlightsList = solution.spotlights && Array.isArray(solution.spotlights)
+        ? solution.spotlights.map(s => `<li>${s.count} × ${s.type} (${s.details})</li>`).join('')
+        : '';
+        
+    const advantagesText = solution.advantages && Array.isArray(solution.advantages)
+        ? solution.advantages.join(', ')
+        : 'Нет данных о преимуществах';
+    
+    return `
+        <div class="ai-option">
+            <div class="ai-option-header">
+                <div class="ai-option-title">${solution.name || 'Неизвестное решение'}</div>
+                <div class="ai-option-badge">Рекомендуем</div>
+            </div>
+            <div class="ai-option-details">
+                <p><strong>Состав:</strong></p>
+                <ul>
+                    ${fixturesList}
+                    ${spotlightsList}
+                </ul>
+                <p><strong>Преимущества:</strong> ${advantagesText}</p>
+            </div>
+            <div class="ai-option-stats">
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.totalFixtures || '-'}</div>
+                    <div class="ai-stat-label">Приборов</div>
+                </div>
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.totalPower || '-'} Вт</div>
+                    <div class="ai-stat-label">Мощность</div>
+                </div>
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.cost || '-'}</div>
+                    <div class="ai-stat-label">Стоимость</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+function generateLightingOption(solution) {
+    // Защита от undefined
+    if (!solution || !solution.name) {
+        return `
+            <div class="ai-option">
+                <div class="ai-option-header">
+                    <div class="ai-option-title">Не удалось сгенерировать вариант</div>
+                    <div class="ai-option-badge">Ошибка</div>
+                </div>
+                <div class="ai-option-details">
+                    <p>Произошла ошибка при генерации варианта освещения.</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    const fixturesList = solution.mainFixtures && Array.isArray(solution.mainFixtures)
+        ? solution.mainFixtures.map(f => `<li>${f.count} × ${f.type} (${f.details})</li>`).join('')
+        : '<li>Нет данных о приборах</li>';
+        
+    const advantagesText = solution.advantages && Array.isArray(solution.advantages)
+        ? solution.advantages.join(', ')
+        : 'Нет данных о преимуществах';
+    
+    return `
+        <div class="ai-option">
+            <div class="ai-option-header">
+                <div class="ai-option-title">${solution.name}</div>
+                <div class="ai-option-badge">${solution.type || 'Вариант'}</div>
+            </div>
+            <div class="ai-option-details">
+                <p><strong>Состав системы:</strong></p>
+                <ul>
+                    ${fixturesList}
+                </ul>
+                <p><strong>Параметры:</strong></p>
+                <ul>
+                    <li>Суммарный световой поток: ${solution.totalLumens ? solution.totalLumens.toLocaleString() : '-'} лм</li>
+                    <li>Общая мощность: ${solution.totalPower || '-'} Вт</li>
+                    <li>Цветовая температура: ${solution.colorTemp || '-'}</li>
+                    <li>Тип монтажа: ${solution.installation || '-'}</li>
+                </ul>
+                <p><strong>Преимущества:</strong> ${advantagesText}</p>
+            </div>
+            <div class="ai-option-stats">
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.cost || '-'}</div>
+                    <div class="ai-stat-label">Стоимость</div>
+                </div>
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.totalFixtures || '-'}</div>
+                    <div class="ai-stat-label">Приборов</div>
+                </div>
+                <div class="ai-stat">
+                    <div class="ai-stat-value">${solution.totalPower && solution.totalLumens ? Math.round(solution.totalLumens / solution.totalPower) : '-'} лм/Вт</div>
+                    <div class="ai-stat-label">Эффективность</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function generateComparisonRows(solutions) {
+    const allSolutions = [
+        { name: 'Оптимальный', data: solutions.optimal },
+        { name: 'Классический', data: solutions.main },
+        { name: 'Комбинированный', data: solutions.combined },
+        { name: 'Современный', data: solutions.modern },
+        { name: 'Экономный', data: solutions.economy }
+    ];
+    
+    return allSolutions.map(sol => {
+        // Защита от undefined
+        if (!sol.data || !sol.data.mainFixtures) {
+            return `
+                <tr>
+                    <td><strong>${sol.name}</strong></td>
+                    <td>Нет данных</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            `;
+        }
+        
+        const fixturesText = Array.isArray(sol.data.mainFixtures) 
+            ? sol.data.mainFixtures.map(f => `${f.count}×${f.type ? f.type.split(' ')[0] : 'светильник'}`).join(', ')
+            : 'Нет данных';
+            
+        const power = sol.data.totalPower || '-';
+        const fixturesCount = sol.data.totalFixtures || '-';
+        const colorTemp = sol.data.colorTemp ? sol.data.colorTemp.split(' ')[0] : '3000K';
+        const installation = sol.data.installation ? sol.data.installation.split(' ')[0] : '-';
+        
+        return `
+            <tr ${sol.name === 'Оптимальный' ? 'class="best-value"' : ''}>
+                <td><strong>${sol.name}</strong></td>
+                <td>${fixturesText}</td>
+                <td>${power} Вт</td>
+                <td>${fixturesCount}</td>
+                <td>${colorTemp}</td>
+                <td>${installation}</td>
+            </tr>
+        `;
+    }).join('');
+}
+
+        function generatePracticalTips(data, solutions) {
             const area = data.area;
             const height = data.height;
             const roomType = data.roomTypeText.toLowerCase();
             
-            let solutions = {
-                recommended: null,
-                alternatives: [],
-                placement: { spacing: 1.5, pattern: 'равномерная сетка' },
-                energyConsumption: 0,
-                payback: '3-5'
-            };
-            
-            if (area > 50) {
-                const largeChandeliersCount = Math.max(2, Math.ceil(area / 40));
-                const hornsPerChandelier = area > 80 ? 24 : 18;
-                const lampPower = area > 80 ? 40 : 30;
-                const totalLamps = largeChandeliersCount * hornsPerChandelier;
-                const totalPower = totalLamps * lampPower;
-                
-                solutions.recommended = {
-                    name: `Система из ${largeChandeliersCount} больших люстр`,
-                    type: 'Люстры',
-                    count: largeChandeliersCount,
-                    totalPower: totalPower,
-                    coverage: 'Полное',
-                    description: `Оптимальное решение для больших помещений. ${largeChandeliersCount} люстры по ${hornsPerChandelier} рожков каждая обеспечивают равномерное освещение без теневых зон.`,
-                    benefits: [
-                        'Равномерное распределение света',
-                        'Величественный внешний вид',
-                        'Легкость в обслуживании',
-                        'Возможность зонирования света'
-                    ]
-                };
-                
-                const projectorsCount = Math.ceil(area / 30);
-                solutions.alternatives.push({
-                    name: `Комбинированная система`,
-                    type: 'Прожекторы + Люстры',
-                    count: projectorsCount + 1,
-                    totalPower: (projectorsCount * 100) + 600,
-                    installation: 'Профессиональный',
-                    description: `${projectorsCount} мощных прожекторов по периметру + центральная люстра. Идеально для помещений сложной формы.`
-                });
-                
-                const panelsCount = Math.ceil(area / 9);
-                solutions.alternatives.push({
-                    name: `Современное решение`,
-                    type: 'LED Панели',
-                    count: panelsCount,
-                    totalPower: panelsCount * 36,
-                    installation: 'Подвесной потолок',
-                    description: `${panelsCount} LED панелей 60×60см. Современный минималистичный вид, максимальная энергоэффективность.`
-                });
-                
-                solutions.placement.spacing = Math.sqrt(area / largeChandeliersCount);
-                solutions.energyConsumption = (totalPower * 5 * 30) / 1000;
-                
-            } else if (area >= 20) {
-                const chandelierHorns = area > 30 ? 12 : 8;
-                const spotlightsCount = Math.max(4, Math.ceil((area - 15) / 4));
-                
-                solutions.recommended = {
-                    name: `Центральная люстра + периферийные светильники`,
-                    type: 'Комбинированная система',
-                    count: 1 + spotlightsCount,
-                    totalPower: (chandelierHorns * 20) + (spotlightsCount * 9),
-                    coverage: 'Равномерное',
-                    description: `Люстра на ${chandelierHorns} рожков в центре + ${spotlightsCount} точечных светильников по периметру. Баланс декоративности и функциональности.`,
-                    benefits: [
-                        'Гибкое зонирование освещения',
-                        'Возможность регулировки яркости',
-                        'Подходит для любого интерьера',
-                        'Легкость модернизации'
-                    ]
-                };
-                
-                const chandeliersCount = 2;
-                solutions.alternatives.push({
-                    name: `${chandeliersCount} одинаковые люстры`,
-                    type: 'Люстры',
-                    count: chandeliersCount,
-                    totalPower: chandeliersCount * 8 * 20,
-                    installation: 'Стандартный',
-                    description: `${chandeliersCount} люстры по 8 рожков, расположенные симметрично. Классическое решение.`
-                });
-                
-                solutions.placement.spacing = 1.8;
-                solutions.energyConsumption = (solutions.recommended.totalPower * 5 * 30) / 1000;
-                
-            } else {
-                const chandelierHorns = area > 10 ? 5 : 3;
-                
-                solutions.recommended = {
-                    name: `Качественная люстра на ${chandelierHorns} рожков`,
-                    type: 'Люстра',
-                    count: 1,
-                    totalPower: chandelierHorns * 9,
-                    coverage: 'Полное',
-                    description: `Стильная люстра с ${chandelierHorns} рожками обеспечит достаточное освещение и станет украшением интерьера.`,
-                    benefits: [
-                        'Экономия места',
-                        'Простота установки',
-                        'Широкий выбор дизайнов',
-                        'Низкое энергопотребление'
-                    ]
-                };
-                
-                const spotlightsCount = Math.ceil(area / 2.5);
-                solutions.alternatives.push({
-                    name: `${spotlightsCount} точечных светильников`,
-                    type: 'Споты',
-                    count: spotlightsCount,
-                    totalPower: spotlightsCount * 9,
-                    installation: 'Встраиваемые',
-                    description: `Современное минималистичное решение. ${spotlightsCount} светильников равномерно распределяют свет.`
-                });
-                
-                solutions.placement.spacing = 1.2;
-                solutions.energyConsumption = (solutions.recommended.totalPower * 5 * 30) / 1000;
-            }
-            
-            if (height > 3.5) {
-                solutions.recommended.description += ` Особое внимание уделено высоте помещения (${height}м) - рекомендованы светильники с направленным светом.`;
-                solutions.placement.pattern = 'с учетом высоты, увеличен шаг';
-            }
-            
-            if (roomType.includes('офис') || roomType.includes('торгов')) {
-                solutions.payback = '1-2';
-                solutions.energyConsumption *= 2;
-            }
-            
-            return solutions;
+            return `
+                <div class="practical-tips">
+                    <div class="practical-tip">
+                        <h4><i class="fas fa-ruler-combined"></i> Расположение светильников</h4>
+                        <p>Рекомендуемый шаг: ${area > 50 ? '1.8-2.2м' : '1.2-1.5м'}</p>
+                        <p>Высота подвеса: ${height > 3.0 ? '2.2-2.5м от пола' : 'не менее 2м от пола'}</p>
+                    </div>
+                    
+                    <div class="practical-tip">
+                        <h4><i class="fas fa-palette"></i> Цветовая температура</h4>
+                        <p>${getColorTemperatureRecommendation(roomType)}</p>
+                        <p>Индекс цветопередачи: >80 Ra</p>
+                    </div>
+                    
+                    <div class="practical-tip">
+                        <h4><i class="fas fa-bolt"></i> Электромонтаж</h4>
+                        <p>Количество групп: ${Math.ceil(area / 25)}</p>
+                        <p>Сечение кабеля: ${area > 50 ? '2.5 мм²' : '1.5 мм²'}</p>
+                    </div>
+                    
+                    <div class="practical-tip">
+                        <h4><i class="fas fa-cogs"></i> Управление</h4>
+                        <p>${area > 30 ? 'Рекомендуем проходные выключатели' : 'Достаточно обычных выключателей'}</p>
+                        <p>${roomType.includes('жил') ? 'Рассмотрите диммеры' : 'Можно без регулировки яркости'}</p>
+                    </div>
+                </div>
+            `;
         }
 
-        function getRoomCategory(area, height) {
-            if (area < 10) return 'Маленькое помещение';
-            if (area < 20) return 'Компактное помещение';
-            if (area < 35) return 'Среднее помещение';
-            if (area < 50) return 'Просторное помещение';
-            if (area < 80) return 'Большое помещение';
-            if (area < 120) return 'Очень большое помещение';
-            return 'Промышленное/коммерческое помещение';
+function generateEconomicAnalysis(solutions, data) {
+    // ЗАЩИТА ОТ UNDEFINED
+    if (!solutions || !solutions.optimal) {
+        return `
+            <div class="economic-analysis">
+                <p><strong>Экономический расчет:</strong> Недостаточно данных для расчета</p>
+            </div>
+        `;
+    }
+    
+    const optimal = solutions.optimal;
+    const monthlyHours = data.roomTypeText && data.roomTypeText.includes('офис') ? 200 : 150;
+    const kwhPrice = 5.5;
+    
+    // ЗАЩИТА ОТ ОШИБОК В cost
+    let costValue = 0;
+    if (optimal.cost) {
+        // Извлекаем число из строки "85-120 тыс. руб."
+        const costMatch = optimal.cost.match(/(\d+(?:\.\d+)?)/);
+        if (costMatch) {
+            costValue = parseFloat(costMatch[1]) * 1000; // переводим в рубли
         }
-
-        function getAreaStatus(area) {
-            if (area < 15) return 'Маленькая';
-            if (area < 30) return 'Средняя';
-            if (area < 50) return 'Большая';
-            if (area < 80) return 'Очень большая';
-            return 'Гигантская';
-        }
-
-        function getHeightStatus(height) {
-            if (height < 2.5) return 'Низкая';
-            if (height < 3.0) return 'Стандартная';
-            if (height < 3.5) return 'Повышенная';
-            if (height < 4.5) return 'Высокая';
-            return 'Очень высокая';
-        }
-
-        function getRoomTypeComplexity(roomType) {
-            if (roomType.includes('детск')) return 'Высокая';
-            if (roomType.includes('офис') || roomType.includes('кабинет')) return 'Средняя';
-            if (roomType.includes('торгов')) return 'Профессиональная';
-            return 'Стандартная';
-        }
-
-        function getRecommendedColorTemperature(roomType) {
-            if (roomType.includes('детск') || roomType.includes('жил')) {
-                return '2700-3000K (теплый белый)';
+    }
+    
+    const totalPower = optimal.totalPower || 100;
+    const monthlyCost = (totalPower * monthlyHours / 1000) * kwhPrice;
+    const annualSavings = monthlyCost * 0.3;
+    const paybackYears = costValue > 0 ? (costValue / (annualSavings * 12)).toFixed(1) : '?';
+    
+    return `
+        <div class="economic-analysis">
+            <p><strong>Экономический расчет для оптимального варианта:</strong></p>
+            <div class="economic-stats">
+                <div class="economic-stat">
+                    <div class="economic-stat-value">${monthlyCost.toFixed(0)} ₽</div>
+                    <div class="economic-stat-label">В месяц</div>
+                </div>
+                <div class="economic-stat">
+                    <div class="economic-stat-value">${annualSavings.toFixed(0)} ₽</div>
+                    <div class="economic-stat-label">Экономия в год</div>
+                </div>
+                <div class="economic-stat">
+                    <div class="economic-stat-value">${paybackYears} лет</div>
+                    <div class="economic-stat-label">Окупаемость</div>
+                </div>
+                <div class="economic-stat">
+                    <div class="economic-stat-value">50k часов</div>
+                    <div class="economic-stat-label">Срок службы</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 12px; color: var(--gray);">
+                <i class="fas fa-info-circle"></i> Расчет приблизительный. Точную стоимость уточняйте у электрика.
+            </p>
+        </div>
+    `;
+}
+        function getColorTemperatureRecommendation(roomType) {
+            if (roomType.includes('детск') || roomType.includes('спальн')) {
+                return '2700-3000K (теплый, уютный)';
             } else if (roomType.includes('офис') || roomType.includes('кабинет')) {
-                return '4000-4500K (нейтральный белый)';
+                return '4000-4500K (нейтральный, рабочий)';
+            } else if (roomType.includes('кухн') || roomType.includes('ванн')) {
+                return '3500-4000K (универсальный)';
             } else if (roomType.includes('торгов')) {
-                return '5000-6000K (холодный белый)';
-            } else if (roomType.includes('сануз')) {
-                return '3000-3500K (универсальный)';
+                return '5000-6500K (холодный, яркий)';
             } else {
-                return '3000-4000K (универсальный)';
+                return '3000-3500K (универсальный белый)';
             }
         }
 
-        function getHeightSpecificTips(height, area) {
-            let tips = '';
+        // Глобальная функция для переключения табов
+        window.switchAITab = function(tabName, button) {
+            // Убираем активный класс у всех табов и контента
+            document.querySelectorAll('.ai-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.ai-tab-content').forEach(content => content.classList.remove('active'));
             
-            if (height > 4.0) {
-                tips += `
-                    <p><strong>🔝 Для высоты ${height}м:</strong></p>
-                    <ul>
-                        <li>Используйте подвесные светильники с регулируемой длиной</li>
-                        <li>Рассмотрите светильники с узким углом рассеивания (30-60°)</li>
-                        <li>Обязательна установка на высоте 2-2.5м от пола</li>
-                        <li>Для обслуживания потребуется стремянка высотой ${Math.ceil(height - 1)}м</li>
-                    </ul>
-                `;
-            } else if (height > 3.0) {
-                tips += `
-                    <p><strong>📏 Для высоты ${height}м:</strong></p>
-                    <ul>
-                        <li>Подойдут стандартные подвесные светильники</li>
-                        <li>Рекомендуемый угол рассеивания: 90-120°</li>
-                        <li>Учитывайте коэффициент высоты при расчете</li>
-                    </ul>
-                `;
+            // Добавляем активный класс нажатому табу
+            button.classList.add('active');
+            
+            // Показываем соответствующий контент
+            const tabContentId = 'aiTab' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
+            const tabContent = document.getElementById(tabContentId);
+            if (tabContent) {
+                tabContent.classList.add('active');
             }
-            
-            if (area > 50 && height > 3.5) {
-                tips += `
-                    <p><strong>⚡ Особенности больших высоких помещений:</strong></p>
-                    <ul>
-                        <li>Рекомендуется комбинированное освещение</li>
-                        <li>Обязательно зонирование светом</li>
-                        <li>Рассмотрите систему управления освещением</li>
-                        <li>Требуется профессиональный расчет и монтаж</li>
-                    </ul>
-                `;
-            }
-            
-            return tips || '<p>Стандартная высота помещения, подходят большинство типов светильников.</p>';
-        }
+        };
 
         // ==================== ПРОФЕССИОНАЛЬНЫЙ КАЛЬКУЛЯТОР ====================
         function validateField(field, min, max, errorElement) {
@@ -1725,16 +3386,21 @@
         function generateLampOptions() {
             lampsGrid.innerHTML = '';
             
-            const basicLamps = [
-                { power: 6, lumens: 510, socket: 'E14', name: 'Стандартный' },
-                { power: 9, lumens: 765, socket: 'E14', name: 'Стандартный' },
-                { power: 14, lumens: 1150, socket: 'E14', name: 'Стандартный' },
-                { power: 20, lumens: 1700, socket: 'E27', name: 'Стандартный' },
-                { power: 30, lumens: 2550, socket: 'E27', name: 'Мощный' },
-                { power: 50, lumens: 4250, socket: 'E27', name: 'Крупный' }
+            // Расширенный список ламп с мощными вариантами
+            const lampOptions = [
+                { power: 6, lumens: 510, socket: 'E14', name: 'Маленькая' },
+                { power: 9, lumens: 765, socket: 'E14', name: 'Стандартная' },
+                { power: 13, lumens: 1105, socket: 'E14', name: 'Мощная' },
+                { power: 20, lumens: 1700, socket: 'E27', name: 'Сильная' },
+                { power: 30, lumens: 2550, socket: 'E27', name: 'Профессиональная' },
+                { power: 40, lumens: 3400, socket: 'E27/E40', name: 'Промышленная' },
+                { power: 50, lumens: 4250, socket: 'E40', name: 'Промышленная+' },
+                { power: 80, lumens: 6800, socket: 'E40', name: 'Мощная прожекторная' },
+                { power: 100, lumens: 8500, socket: 'E40', name: 'Очень мощная' },
+                { power: 150, lumens: 12750, socket: 'E40', name: 'Сверхмощная' }
             ];
             
-            basicLamps.forEach((lamp, index) => {
+            lampOptions.forEach((lamp, index) => {
                 const lampCount = Math.ceil(requiredLumens / lamp.lumens);
                 const lampOption = document.createElement('div');
                 lampOption.className = `lamp-option ${index === 3 ? 'selected' : ''}`;
@@ -1841,10 +3507,10 @@
                 : 'Комфортная освещенность для глаз';
             
             const totalMultiplierValue = ((reserveCoefficient * heightMultiplierValue) / utilizationCoefficient).toFixed(2);
-coefficientValue.textContent = utilizationCoefficient;
-reserveValue.textContent = reserveCoefficient.toFixed(1);
-heightCoefficient.textContent = heightMultiplierValue.toFixed(1);
-totalMultiplier.textContent = totalMultiplierValue;
+            coefficientValue.textContent = utilizationCoefficient;
+            reserveValue.textContent = reserveCoefficient.toFixed(1);
+            heightCoefficient.textContent = heightMultiplierValue.toFixed(1);
+            totalMultiplier.textContent = totalMultiplierValue;
             
             if (height > 3.0) {
                 heightWarning.classList.add('active');
@@ -1876,6 +3542,7 @@ totalMultiplier.textContent = totalMultiplierValue;
         widthInput.addEventListener('input', debouncedCalculate);
         heightInput.addEventListener('input', debouncedCalculate);
         roomTypeSelect.addEventListener('change', debouncedCalculate);
+        customLux.addEventListener('input', debouncedCalculate);
         
         function restoreValueIfEmpty(field, defaultValue) {
             if (field.value === '') {
@@ -1914,6 +3581,13 @@ totalMultiplier.textContent = totalMultiplierValue;
                 document.body.style.opacity = '1';
                 lengthInput.focus();
             }, 100);
+        });
+
+        // Открытие AI анализа по Ctrl+Enter
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter' && !aiAnalyzeBtn.disabled) {
+                aiAnalyzeBtn.click();
+            }
         });
     </script>
 </body>
